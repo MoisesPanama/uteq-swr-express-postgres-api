@@ -6,7 +6,7 @@ Repositorio grupal para la exposición de **Aplicaciones Web** (SOFT-R, 5to Nive
 
 ```
 uteq-swr-express-postgres-api/
-└── DEMO-MOISES/     Demo de Express.js + Sequelize + PostgreSQL
-```
-
+├── DEMO-MOISES/      Demo de Express.js + Sequelize + PostgreSQL
+└── DEMO-JEFFERSON/   Demo de Express.js + Sequelize + PostgreSQL
+ ```
 Cada integrante mantiene su propia carpeta de demo dentro del repositorio.
