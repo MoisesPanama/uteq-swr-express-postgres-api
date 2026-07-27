@@ -3,6 +3,7 @@
 ## 1. Antes de empezar (verificar en la terminal)
 
 ```powershell
+cd DEMO-MOISES
 node -v
 npm -v
 psql --version
