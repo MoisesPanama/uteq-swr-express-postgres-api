@@ -11,12 +11,112 @@
       "name": "Listar libros (GET)",
       "request": {
         "method": "GET",
-        "header": []
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/libros",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "libros"
+          ]
+        }
       },
       "response": []
     },
     {
       "name": "Crear libro (POST)",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"isbn\": \"9780307474728\",\r\n  \"titulo\": \"El Amor en los Tiempos del Colera\",\r\n  \"resumen\": \"Novela de Gabriel Garcia Marquez.\",\r\n  \"anioPublicacion\": 1985,\r\n  \"editorialId\": 3,\r\n  \"idiomaId\": 1,\r\n  \"estadoId\": 1,\r\n  \"stockTotal\": 4,\r\n  \"stockDisponible\": 4,\r\n  \"ubicacionFisica\": \"A-14\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/libros",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "libros"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Error - Campos faltantes (POST)",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"titulo\": \"Libro sin ISBN\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/libros",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "libros"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Actualizar libro (PUT)",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"isbn\": \"9780307474728\",\r\n  \"titulo\": \"El Amor en los Tiempos del Colera\",\r\n  \"resumen\": \"Novela de Gabriel Garcia Marquez.\",\r\n  \"anioPublicacion\": 1985,\r\n  \"editorialId\": 3,\r\n  \"idiomaId\": 1,\r\n  \"estadoId\": 1,\r\n  \"stockTotal\": 4,\r\n  \"stockDisponible\": 1,\r\n  \"ubicacionFisica\": \"A-14\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/libros/4",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "libros",
+            "4"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET libro por ID",
       "request": {
         "method": "GET",
         "header": []
@@ -24,7 +124,7 @@
       "response": []
     },
     {
-      "name": "Error - Campos faltantes (POST)",
+      "name": "Eliminar libro (DELETE)",
       "request": {
         "method": "GET",
         "header": []
