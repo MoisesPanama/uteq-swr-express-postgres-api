@@ -45,8 +45,7 @@ src/
 └── server.js                 # Punto de entrada: conecta BD y levanta el servidor
 
 docs/
-├── DEMO-SCRIPT.md              # Guion paso a paso para la demo en vivo
-├── DEMO-SCRIPT-PRACTICADO.md   # Guion con notas de la práctica ya ensayada
+├── DEMO-SCRIPT.md              # Guion paso a paso para la demo en vivo, validado en frío
 └── postman-collection.json     # Colección de Postman con GET/POST/PUT/DELETE
 ```
 
@@ -203,8 +202,7 @@ Editorial (1) ──< (N) Libro (N) >── (1) Idioma
 
 ## Documentación de la demo
 
-- [`docs/DEMO-SCRIPT.md`](./docs/DEMO-SCRIPT.md) — guion completo con los comandos listos para la exposición en vivo.
-- [`docs/DEMO-SCRIPT-PRACTICADO.md`](./docs/DEMO-SCRIPT-PRACTICADO.md) — notas de la práctica ya ensayada (qué salió bien, comportamientos a explicar como el del soft delete con ISBN).
+- [`docs/DEMO-SCRIPT.md`](./docs/DEMO-SCRIPT.md) — guion completo con los comandos listos para la exposición en vivo, ya validado con un arranque en frío (VS Code cerrado y reabierto de cero).
 - [`docs/postman-collection.json`](./docs/postman-collection.json) — colección de Postman con las peticiones GET, GET/:id, POST, PUT, DELETE y casos de error, listas para importar.
 
 ## Solución de problemas comunes
