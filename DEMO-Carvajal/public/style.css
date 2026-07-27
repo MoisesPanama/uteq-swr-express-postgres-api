@@ -1,0 +1,257 @@
+:root {
+  --navy: #1E2761;
+  --navy-soft: #2C3780;
+  --ice: #CADCFC;
+  --accent: #FF6B4A;
+  --accent-soft: #FFE4DC;
+  --text: #1F2333;
+  --muted: #6E7180;
+  --bg: #F5F7FD;
+  --card: #FFFFFF;
+  --border: #E4E7F2;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, "Segoe UI", Arial, Helvetica, sans-serif;
+  margin: 0;
+  color: var(--text);
+  background: var(--bg);
+}
+
+a { color: inherit; }
+
+/* ---------- Topbar ---------- */
+.topbar {
+  background: var(--navy);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2.2rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 2px 12px rgba(30, 39, 97, 0.25);
+}
+
+.brand {
+  color: white;
+  font-weight: 700;
+  font-size: 1.25rem;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  letter-spacing: 0.2px;
+}
+.brand-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--accent);
+  display: inline-block;
+}
+
+.topbar nav { display: flex; align-items: center; gap: 1.6rem; }
+.topbar nav a { color: var(--ice); text-decoration: none; font-size: 0.95rem; }
+.topbar nav a:hover { color: white; }
+
+.nav-btn-link, .nav-btn {
+  background: var(--accent);
+  color: white !important;
+  padding: 0.5rem 1.1rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+.nav-btn-link:hover, .nav-btn:hover { background: #ff8163; }
+.inline-form { margin: 0; }
+
+/* ---------- Layout ---------- */
+.content { max-width: 1080px; margin: 0 auto; padding: 2.2rem 1.5rem 4rem; }
+
+.page-head { margin-bottom: 1.8rem; }
+.eyebrow {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--navy);
+  background: var(--ice);
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  margin-bottom: 0.7rem;
+}
+h1 { font-size: 2rem; margin: 0 0 0.35rem; color: var(--navy); }
+.subtitle { color: var(--muted); margin: 0; font-size: 0.95rem; }
+.subtitle code {
+  background: #EEF1FB; color: var(--navy); padding: 0.1rem 0.4rem; border-radius: 4px; font-size: 0.85em;
+}
+
+/* ---------- Grid / Cards ---------- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.1rem;
+  margin-top: 1.6rem;
+}
+
+.card {
+  background: var(--card);
+  border-radius: 14px;
+  padding: 1.3rem;
+  border: 1px solid var(--border);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(30, 39, 97, 0.1); }
+
+.card-icon {
+  width: 42px; height: 42px; border-radius: 10px;
+  background: var(--ice); color: var(--navy);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 1.05rem; margin-bottom: 0.8rem;
+}
+
+.card h3 { margin: 0 0 0.3rem; font-size: 1.05rem; color: var(--text); }
+.card .meta { color: var(--muted); font-size: 0.85rem; margin: 0 0 0.6rem; }
+
+.badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+}
+.badge.active { background: #E2F6EA; color: #1B6E3C; }
+.badge.inactive { background: #F1F1F4; color: #6E7180; }
+
+.price {
+  color: var(--navy);
+  font-weight: 700;
+  font-size: 1.15rem;
+  margin: 0.4rem 0 0.9rem;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--navy);
+  color: white;
+  border: none;
+  padding: 0.55rem 1.1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  text-decoration: none;
+  width: 100%;
+  text-align: center;
+}
+.btn:hover { background: var(--navy-soft); }
+.btn.accent { background: var(--accent); }
+.btn.accent:hover { background: #ff8163; }
+.btn.ghost { background: transparent; color: var(--navy); border: 1px solid var(--border); }
+
+/* ---------- States: empty / error / success ---------- */
+.state-box {
+  border-radius: 14px;
+  padding: 2.2rem 1.6rem;
+  text-align: center;
+  margin-top: 1.6rem;
+  border: 1px dashed var(--border);
+  background: var(--card);
+}
+.state-box .state-icon { font-size: 2rem; margin-bottom: 0.6rem; }
+.state-box h3 { margin: 0 0 0.4rem; color: var(--navy); }
+.state-box p { color: var(--muted); margin: 0; font-size: 0.9rem; }
+
+.alert {
+  background: #FCEBEA;
+  color: #9E2A2B;
+  padding: 0.9rem 1.1rem;
+  border-radius: 10px;
+  margin: 1.2rem 0;
+  font-size: 0.9rem;
+  border: 1px solid #F6C9C6;
+}
+.alert.success { background: #E7F6EC; color: #1B6E3C; border-color: #BFE6CC; }
+
+/* ---------- Forms ---------- */
+.search-form {
+  display: flex;
+  gap: 0.7rem;
+  margin-top: 1.4rem;
+}
+.search-form input {
+  flex: 1;
+  max-width: 380px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  max-width: 380px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.6rem;
+  margin-top: 1.4rem;
+}
+.login-form label {
+  display: flex; flex-direction: column; gap: 0.35rem;
+  font-size: 0.85rem; color: var(--muted); font-weight: 600;
+}
+
+input {
+  padding: 0.65rem 0.8rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  font-size: 0.95rem;
+  font-family: inherit;
+  background: white;
+  color: var(--text);
+}
+input:focus { outline: 2px solid var(--ice); border-color: var(--navy); }
+
+/* ---------- Pedido / order card ---------- */
+.pedido-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem 1.3rem;
+  margin-bottom: 0.8rem;
+}
+.pedido-row .etapa {
+  background: var(--ice); color: var(--navy);
+  font-size: 0.78rem; font-weight: 700;
+  padding: 0.3rem 0.7rem; border-radius: 999px; white-space: nowrap;
+}
+
+/* ---------- Code / JSON box ---------- */
+.json-box {
+  background: #13172B;
+  color: #9CDCFE;
+  padding: 1.2rem;
+  border-radius: 12px;
+  overflow-x: auto;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  text-align: center;
+  padding: 1.4rem;
+  color: var(--muted);
+  font-size: 0.82rem;
+  border-top: 1px solid var(--border);
+  background: var(--card);
+}

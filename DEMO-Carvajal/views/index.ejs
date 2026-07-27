@@ -1,0 +1,32 @@
+<%- include('_header') %>
+
+<div class="page-head">
+  <span class="eyebrow">DATOS EN VIVO</span>
+  <h1>Categorías activas</h1>
+  <p class="subtitle">Obtenidas de <code>GET /api/v1/categorias</code> en el backend Spring Boot</p>
+</div>
+
+<% if (error) { %>
+  <div class="alert">⚠ <%= error %></div>
+<% } else if (categorias.length === 0) { %>
+  <div class="state-box">
+    <div class="state-icon">🗂️</div>
+    <h3>No hay categorías todavía</h3>
+    <p>El backend respondió correctamente, pero la tabla de categorías está vacía.<br />
+      Revisa la terminal donde corre <code>npm start</code>: ahí verás cuántas categorías llegaron realmente.</p>
+  </div>
+<% } else { %>
+  <div class="grid">
+    <% categorias.forEach(function(cat) { %>
+      <div class="card">
+        <div class="card-icon"><%= cat.nombreCategoria.charAt(0).toUpperCase() %></div>
+        <h3><%= cat.nombreCategoria %></h3>
+        <span class="badge <%= cat.estadoActiva ? 'active' : 'inactive' %>">
+          <%= cat.estadoActiva ? 'Activa' : 'Inactiva' %>
+        </span>
+      </div>
+    <% }) %>
+  </div>
+<% } %>
+
+<%- include('_footer') %>

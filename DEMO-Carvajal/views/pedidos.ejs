@@ -1,0 +1,29 @@
+<%- include('_header') %>
+
+<div class="page-head">
+  <span class="eyebrow">TRANSACCIONAL · REQUIERE JWT</span>
+  <h1>Mis pedidos</h1>
+  <p class="subtitle">Obtenidos de <code>GET /api/v1/pedidos/mis-pedidos</code>, enviando el JWT en <code>Authorization: Bearer</code></p>
+</div>
+
+<% if (error) { %>
+  <div class="alert">⚠ <%= error %></div>
+<% } else if (pedidos.length === 0) { %>
+  <div class="state-box">
+    <div class="state-icon">🧾</div>
+    <h3>Todavía no tienes pedidos</h3>
+    <p>Ve al <a href="/catalogo">catálogo</a> y presiona "Contratar servicio" en cualquier tarjeta para crear tu primer pedido.</p>
+  </div>
+<% } else { %>
+  <% pedidos.forEach(function(p) { %>
+    <div class="pedido-row">
+      <div>
+        <h3 style="margin:0 0 0.2rem;"><%= p.tituloServicio %></h3>
+        <p class="meta" style="margin:0;">Creador: <%= p.nombreCreador %> · Precio pactado: $<%= p.precioPactado %></p>
+      </div>
+      <span class="etapa"><%= p.etapaActual %></span>
+    </div>
+  <% }) %>
+<% } %>
+
+<%- include('_footer') %>
