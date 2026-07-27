@@ -1,0 +1,33 @@
+{
+  "name": "demo-jefferson",
+  "version": "1.0.0",
+  "description": "API REST del sistema SBVIA desarrollada con Express.js y PostgreSQL",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "seed": "node src/seed.js"
+  },
+  "keywords": [
+    "express",
+    "postgresql",
+    "sequelize",
+    "api-rest",
+    "sbvia"
+  ],
+  "author": "Jefferson Manuel Umaginga Arevalo",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "express-validator": "^7.3.2",
+    "pg": "^8.22.0",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.37.8"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
