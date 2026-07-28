@@ -1,0 +1,49 @@
+<%- include('_header') %>
+
+<div class="page-head">
+  <span class="eyebrow">DATOS EN VIVO</span>
+  <h1>Catálogo de servicios</h1>
+  <p class="subtitle">Obtenidos de <code>GET /api/v1/catalogo?q=...</code> en el backend Spring Boot</p>
+</div>
+
+<form method="GET" action="/catalogo" class="search-form">
+  <input type="text" name="q" placeholder="Buscar servicio..." value="<%= q %>" />
+  <button type="submit" class="btn" style="width:auto;">Buscar</button>
+</form>
+
+<% if (mensaje) { %>
+  <div class="alert success">✓ <%= mensaje %></div>
+<% } %>
+<% if (error) { %>
+  <div class="alert">⚠ <%= error %></div>
+<% } %>
+
+<% if (!error && servicios.length === 0) { %>
+  <div class="state-box">
+    <div class="state-icon">🔍</div>
+    <h3>No se encontraron servicios</h3>
+    <p>El backend respondió correctamente, pero no hay servicios publicados (o ninguno coincide con "<%= q %>").<br />
+      Revisa la terminal de <code>npm start</code> para ver el total real que devolvió la API.</p>
+  </div>
+<% } else if (!error) { %>
+  <div class="grid">
+    <% servicios.forEach(function(s) { %>
+      <div class="card">
+        <div class="card-icon"><%= (s.tituloServicio || '?').charAt(0).toUpperCase() %></div>
+        <h3><%= s.tituloServicio %></h3>
+        <p class="meta"><%= s.nombreCategoria %> · <%= s.nombreCreador %></p>
+        <p class="price">$<%= s.precioBase %></p>
+
+        <% if (logueado) { %>
+          <form method="POST" action="/catalogo/<%= s.idServicio %>/contratar">
+            <button type="submit" class="btn accent">Contratar servicio</button>
+          </form>
+        <% } else { %>
+          <a href="/login" class="btn ghost">Inicia sesión para contratar</a>
+        <% } %>
+      </div>
+    <% }) %>
+  </div>
+<% } %>
+
+<%- include('_footer') %>

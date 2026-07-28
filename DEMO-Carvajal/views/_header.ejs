@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ArtiSync · Frontend Node.js</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a href="/" class="brand">
+      <span class="brand-dot"></span> ArtiSync
+    </a>
+    <nav>
+      <a href="/">Categorías</a>
+      <a href="/catalogo">Catálogo</a>
+      <% if (typeof logueado !== 'undefined' && logueado) { %>
+        <a href="/pedidos">Mis pedidos</a>
+        <a href="/perfil">Mi perfil</a>
+        <form action="/logout" method="POST" class="inline-form">
+          <button type="submit" class="nav-btn">Cerrar sesión</button>
+        </form>
+      <% } else { %>
+        <a href="/login" class="nav-btn-link">Iniciar sesión</a>
+      <% } %>
+    </nav>
+  </header>
+  <main class="content">

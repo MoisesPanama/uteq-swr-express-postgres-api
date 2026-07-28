@@ -1,0 +1,26 @@
+<%- include('_header') %>
+
+<div class="page-head">
+  <span class="eyebrow">AUTENTICACIÓN JWT</span>
+  <h1>Iniciar sesión</h1>
+  <p class="subtitle">Envía <code>POST /api/auth/login</code> y guarda el JWT recibido en una cookie httpOnly</p>
+</div>
+
+<% if (error) { %>
+  <div class="alert">⚠ <%= error %></div>
+<% } %>
+<% if (mensaje) { %>
+  <div class="alert success">✓ <%= mensaje %></div>
+<% } %>
+
+<form method="POST" action="/login" class="login-form">
+  <label>Correo
+    <input type="email" name="correo" required placeholder="cliente@artisync.com" />
+  </label>
+  <label>Contraseña
+    <input type="password" name="contrasena" required />
+  </label>
+  <button type="submit" class="btn">Ingresar</button>
+</form>
+
+<%- include('_footer') %>

@@ -1,0 +1,18 @@
+<%- include('_header') %>
+
+<div class="page-head">
+  <span class="eyebrow">RUTA PROTEGIDA</span>
+  <h1>Mi perfil</h1>
+  <p class="subtitle">Envía el JWT como <code>Authorization: Bearer &lt;token&gt;</code> a <code>GET /api/usuarios/me</code></p>
+</div>
+
+<% if (error) { %>
+  <div class="alert">⚠ <%= error %></div>
+<% } else { %>
+  <pre class="json-box"><%= JSON.stringify(perfil, null, 2) %></pre>
+  <form method="POST" action="/logout" style="margin-top:1rem; max-width:200px;">
+    <button type="submit" class="btn ghost">Cerrar sesión</button>
+  </form>
+<% } %>
+
+<%- include('_footer') %>
